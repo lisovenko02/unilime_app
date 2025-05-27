@@ -1,54 +1,46 @@
-# React + TypeScript + Vite
+# Unilime App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Опис проекту
 
-Currently, two official plugins are available:
+Це простий React-додаток, створений за допомогою Vite. Він містить базову структуру з сайдбаром та трьома сторінками: Overview, Users та Settings. Для стилізації використано TailwindCSS. Проект демонструє роботу з React Router, лениве завантаження компонентів, та прості UI-компоненти.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 1. Vite + React Setup
+- [x] Ініціалізовано проект за допомогою Vite та React.
+- [x] Налаштовано TailwindCSS для стилізації.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Додатково:**  
+Використано TailwindCSS без сторонніх UI-бібліотек, щоб мати повний контроль над стилями.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 2. Layout + Routing
+- [x] Побудовано простий Layout з Sidebar, що містить посилання на: Overview, Users, Settings.
+- [x] Реалізовано маршрутизацію через React Router для шляхів `/overview`, `/users`, `/settings`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+**Додатково:**  
+Використано nested routes для зручної організації Layout та сторінок. Маршрути захищені Suspense для ленивого завантаження компонентів.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## 3. Pages
+| Сторінка  | Опис                                                        | Статус      |
+|-----------|-------------------------------------------------------------|-------------|
+| Overview  | Відображає 2-3 метрики у вигляді карток з моковими даними.  | 🟢 Готово   |
+| Users     | Таблиця з 5-10 моковими користувачами, сортування по імені. | 👥 Готово   |
+| Settings  | Проста форма з 3 полями: переключення теми, чекбокс, інпут. | ⚙️ Готово   |
+
+**Додатково:**  
+Компоненти написані з урахуванням повторного використання, стилі винесені у Tailwind класи.
+
+---
+
+## 4. Інструкції зі встановлення та запуску
+
+### Встановлення
+
+```bash
+git clone https://github.com/lisovenko02/unilime_app.git
+cd unilime_app
+npm install
